@@ -21,3 +21,8 @@
 ###< symfony/phpunit-bridge ###
 
 /tests/_output
+
+###> phpunit/phpunit ###
+/phpunit.xml
+.phpunit.result.cache
+###< phpunit/phpunit ###
