@@ -138,6 +138,18 @@
     "league/html-to-markdown": {
         "version": "5.0.2"
     },
+    "liip/monitor-bundle": {
+        "version": "2.20",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "2.6",
+            "ref": "02c7cd93304dead890f9042fc2670dd9b0e0c091"
+        },
+        "files": [
+            "config/packages/monitor.yaml"
+        ]
+    },
     "monolog/monolog": {
         "version": "2.3.5"
     },
