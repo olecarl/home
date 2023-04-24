@@ -71,5 +71,13 @@ class HousesCest
         $I->seeResponseCodeIsSuccessful();
         $I->seeHttpHeader('content-type', 'application/ld+json; charset=utf-8');
         $I->seeResponseIsJson();
+
+        $I->seeResponseContainsJson(
+            [
+                '@context' => '/contexts/House',
+                '@id' => '/houses',
+                '@type' => 'hydra:Collection'
+            ]
+        );
     }
 }
