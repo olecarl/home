@@ -24,7 +24,7 @@ abstract class Place extends Thing
     #[ORM\OneToOne(targetEntity: 'App\Entity\PostalAddress')]
     #[ApiProperty(types: ['https://schema.org/address'])]
     #[Groups(['read', 'write'])]
-    private PostalAddress $address;
+    public PostalAddress $address;
 
     /**
      * The geo coordinates of the place.
@@ -34,25 +34,5 @@ abstract class Place extends Thing
     #[ORM\OneToOne(targetEntity: 'App\Entity\GeoCoordinates')]
     #[ApiProperty(types: ['https://schema.org/geo'])]
     #[Groups(['read', 'write'])]
-    private ?GeoCoordinates $geo = null;
-
-    public function setAddress(PostalAddress $address): void
-    {
-        $this->address = $address;
-    }
-
-    public function getAddress(): PostalAddress
-    {
-        return $this->address;
-    }
-
-    public function setGeo(?GeoCoordinates $geo): void
-    {
-        $this->geo = $geo;
-    }
-
-    public function getGeo(): ?GeoCoordinates
-    {
-        return $this->geo;
-    }
+    public ?GeoCoordinates $geo = null;
 }

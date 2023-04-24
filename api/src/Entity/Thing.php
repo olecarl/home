@@ -35,20 +35,10 @@ abstract class Thing
     #[ORM\Column(type: 'text', nullable: true)]
     #[ApiProperty(types: ['https://schema.org/name'])]
     #[Groups(['read', 'write'])]
-    private ?string $name = null;
+    public ?string $name = null;
 
     public function getId(): ?Ulid
     {
         return $this->id;
-    }
-
-    public function setName(?string $name): void
-    {
-        $this->name = $name;
-    }
-
-    public function getName(): ?string
-    {
-        return $this->name;
     }
 }
