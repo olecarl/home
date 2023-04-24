@@ -26,7 +26,7 @@ class GeoCoordinates extends Thing
     #[ORM\Column(type: 'text', nullable: true)]
     #[ApiProperty(types: ['https://schema.org/latitude'])]
     #[Groups(['read', 'write'])]
-    private ?string $latitude = null;
+    public ?string $latitude = null;
 
     /**
      * The longitude of a location. For example ```-122.08585``` (\[WGS 84\](https://en.wikipedia.org/wiki/World\_Geodetic\_System)).
@@ -36,25 +36,5 @@ class GeoCoordinates extends Thing
     #[ORM\Column(type: 'text', nullable: true)]
     #[ApiProperty(types: ['https://schema.org/longitude'])]
     #[Groups(['read', 'write'])]
-    private ?string $longitude = null;
-
-    public function setLatitude(?string $latitude): void
-    {
-        $this->latitude = $latitude;
-    }
-
-    public function getLatitude(): ?string
-    {
-        return $this->latitude;
-    }
-
-    public function setLongitude(?string $longitude): void
-    {
-        $this->longitude = $longitude;
-    }
-
-    public function getLongitude(): ?string
-    {
-        return $this->longitude;
-    }
+    public ?string $longitude = null;
 }
