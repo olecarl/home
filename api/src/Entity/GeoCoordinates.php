@@ -16,13 +16,8 @@ use Symfony\Component\Serializer\Annotation\Groups;
  */
 #[ORM\Entity]
 #[ApiResource(types: ['https://schema.org/GeoCoordinates'], openapi: false)]
-class GeoCoordinates
+class GeoCoordinates extends Thing
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue(strategy: 'AUTO')]
-    #[ORM\Column(type: 'integer')]
-    private ?int $id = null;
-
     /**
      * The latitude of a location. For example ```37.42242``` (\[WGS 84\](https://en.wikipedia.org/wiki/World\_Geodetic\_System)).
      *
@@ -42,11 +37,6 @@ class GeoCoordinates
     #[ApiProperty(types: ['https://schema.org/longitude'])]
     #[Groups(['read', 'write'])]
     private ?string $longitude = null;
-
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
 
     public function setLatitude(?string $latitude): void
     {

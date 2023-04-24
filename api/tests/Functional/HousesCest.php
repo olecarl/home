@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Tests\Functional;
 
+use Codeception\Util\HttpCode;
 use Tests\Support\FunctionalTester;
 
 class HousesCest
@@ -11,7 +12,7 @@ class HousesCest
 
     public const ROUTE = '/houses';
 
-    private string $id;
+    private string $iri;
 
     public function _before(FunctionalTester $I): void
     {
@@ -32,13 +33,13 @@ class HousesCest
         $I->seeHttpHeader('content-type', 'application/ld+json; charset=utf-8');
         $I->seeResponseIsJson();
 
-        [$this->id] = $I->grabDataFromResponseByJsonPath('$.["@id"]');
+        [$this->iri] = $I->grabDataFromResponseByJsonPath('$.["@id"]');
     }
 
     public function tryToGetHouse(FunctionalTester $I): void
     {
         $I->amGoingTo('GET a house');
-        $I->sendGet($this->id);
+        $I->sendGet($this->iri);
 
         $I->expect('response is successful');
         $I->seeResponseCodeIsSuccessful();
@@ -49,7 +50,7 @@ class HousesCest
         $I->seeResponseContainsJson(
             [
                 '@context' => '/contexts/House',
-                '@id' => $this->id,
+                '@id' => $this->iri,
                 '@type' => 'https://schema.org/House'
             ]
         );
@@ -62,7 +63,7 @@ class HousesCest
         );
     }
 
-    public function tryToGetCollectionOfHouses(FunctionalTester $I): void
+    public function tryToGetHouseCollection(FunctionalTester $I): void
     {
         $I->amGoingTo('GET list of houses');
         $I->sendGet(self::ROUTE);
@@ -75,9 +76,23 @@ class HousesCest
         $I->seeResponseContainsJson(
             [
                 '@context' => '/contexts/House',
-                '@id' => '/houses',
+                '@id' => self::ROUTE,
                 '@type' => 'hydra:Collection'
             ]
         );
+    }
+
+    public function tryToDeleteHouse(FunctionalTester $I): void
+    {
+        $I->amGoingTo('DELETE a house');
+        $I->sendDelete($this->iri);
+
+        $I->expect('HTTP Status Code ' . HttpCode::NO_CONTENT . ' (NO_CONTENT)');
+        $I->seeResponseCodeIs(HttpCode::NO_CONTENT);
+
+        $I->sendGet($this->iri);
+        $I->seeResponseCodeIs(HttpCode::NOT_FOUND);
+
+        unset($this->iri);
     }
 }

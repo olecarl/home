@@ -4,6 +4,7 @@ types:
         properties:
             name: ~
     PostalAddress:
+        parent: Thing
         properties:
             addressCountry: { range: "Text" }
             addressLocality: ~
@@ -11,7 +12,7 @@ types:
             postalCode: ~
             streetAddress: ~
     GeoCoordinates:
-        parent: false
+        parent: Thing
         properties:
             latitude: { range: "Text" }
             longitude: { range: "Text" }
