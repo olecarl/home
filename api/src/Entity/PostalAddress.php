@@ -16,13 +16,8 @@ use Symfony\Component\Serializer\Annotation\Groups;
  */
 #[ORM\Entity]
 #[ApiResource(types: ['https://schema.org/PostalAddress'], openapi: false)]
-class PostalAddress
+class PostalAddress extends Thing
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue(strategy: 'AUTO')]
-    #[ORM\Column(type: 'integer')]
-    private ?int $id = null;
-
     /**
      * The country. For example, USA. You can also provide the two-letter \[ISO 3166-1 alpha-2 country code\](http://en.wikipedia.org/wiki/ISO\_3166-1).
      *
@@ -31,7 +26,7 @@ class PostalAddress
     #[ORM\Column(type: 'text', nullable: true)]
     #[ApiProperty(types: ['https://schema.org/addressCountry'])]
     #[Groups(['read', 'write'])]
-    private ?string $addressCountry = null;
+    public ?string $addressCountry = null;
 
     /**
      * The locality in which the street address is, and which is in the region. For example, Mountain View.
@@ -41,7 +36,7 @@ class PostalAddress
     #[ORM\Column(type: 'text', nullable: true)]
     #[ApiProperty(types: ['https://schema.org/addressLocality'])]
     #[Groups(['read', 'write'])]
-    private ?string $addressLocality = null;
+    public ?string $addressLocality = null;
 
     /**
      * The region in which the locality is, and which is in the country. For example, California or another appropriate first-level \[Administrative division\](https://en.wikipedia.org/wiki/List\_of\_administrative\_divisions\_by\_country).
@@ -51,7 +46,7 @@ class PostalAddress
     #[ORM\Column(type: 'text', nullable: true)]
     #[ApiProperty(types: ['https://schema.org/addressRegion'])]
     #[Groups(['read', 'write'])]
-    private ?string $addressRegion = null;
+    public ?string $addressRegion = null;
 
     /**
      * The postal code. For example, 94043.
@@ -61,7 +56,7 @@ class PostalAddress
     #[ORM\Column(type: 'text', nullable: true)]
     #[ApiProperty(types: ['https://schema.org/postalCode'])]
     #[Groups(['read', 'write'])]
-    private ?string $postalCode = null;
+    public ?string $postalCode = null;
 
     /**
      * The street address. For example, 1600 Amphitheatre Pkwy.
@@ -71,60 +66,5 @@ class PostalAddress
     #[ORM\Column(type: 'text', nullable: true)]
     #[ApiProperty(types: ['https://schema.org/streetAddress'])]
     #[Groups(['read', 'write'])]
-    private ?string $streetAddress = null;
-
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-
-    public function setAddressCountry(?string $addressCountry): void
-    {
-        $this->addressCountry = $addressCountry;
-    }
-
-    public function getAddressCountry(): ?string
-    {
-        return $this->addressCountry;
-    }
-
-    public function setAddressLocality(?string $addressLocality): void
-    {
-        $this->addressLocality = $addressLocality;
-    }
-
-    public function getAddressLocality(): ?string
-    {
-        return $this->addressLocality;
-    }
-
-    public function setAddressRegion(?string $addressRegion): void
-    {
-        $this->addressRegion = $addressRegion;
-    }
-
-    public function getAddressRegion(): ?string
-    {
-        return $this->addressRegion;
-    }
-
-    public function setPostalCode(?string $postalCode): void
-    {
-        $this->postalCode = $postalCode;
-    }
-
-    public function getPostalCode(): ?string
-    {
-        return $this->postalCode;
-    }
-
-    public function setStreetAddress(?string $streetAddress): void
-    {
-        $this->streetAddress = $streetAddress;
-    }
-
-    public function getStreetAddress(): ?string
-    {
-        return $this->streetAddress;
-    }
+    public ?string $streetAddress = null;
 }
