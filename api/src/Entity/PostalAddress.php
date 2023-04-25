@@ -68,4 +68,12 @@ class PostalAddress extends Thing
     #[ApiProperty(types: ['https://schema.org/streetAddress'])]
     #[Groups(['read', 'write'])]
     public ?string $streetAddress = null;
+
+    public function __toString(): string
+    {
+        return ($this->streetAddress . ', ' .
+            $this->postalCode . ' ' .
+            $this->addressLocality . ', ' .
+            $this->addressCountry);
+    }
 }
