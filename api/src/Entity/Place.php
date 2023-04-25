@@ -21,7 +21,7 @@ abstract class Place extends Thing
      *
      * @see https://schema.org/address
      */
-    #[ORM\OneToOne(targetEntity: 'App\Entity\PostalAddress')]
+    #[ORM\OneToOne(targetEntity: PostalAddress::class, cascade: ['persist'])]
     #[ApiProperty(types: ['https://schema.org/address'])]
     #[Groups(['read', 'write'])]
     public PostalAddress $address;
@@ -31,7 +31,7 @@ abstract class Place extends Thing
      *
      * @see https://schema.org/geo
      */
-    #[ORM\OneToOne(targetEntity: 'App\Entity\GeoCoordinates')]
+    #[ORM\OneToOne(targetEntity: GeoCoordinates::class, cascade: ['persist'])]
     #[ApiProperty(types: ['https://schema.org/geo'])]
     #[Groups(['read', 'write'])]
     public ?GeoCoordinates $geo = null;
