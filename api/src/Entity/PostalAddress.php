@@ -8,6 +8,7 @@ use ApiPlatform\Metadata\ApiProperty;
 use ApiPlatform\Metadata\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Uid\Ulid;
 
 /**
  * The mailing address.
@@ -29,16 +30,6 @@ class PostalAddress extends Thing
     public ?string $addressCountry = null;
 
     /**
-     * The locality in which the street address is, and which is in the region. For example, Mountain View.
-     *
-     * @see https://schema.org/addressLocality
-     */
-    #[ORM\Column(type: 'text', nullable: true)]
-    #[ApiProperty(types: ['https://schema.org/addressLocality'])]
-    #[Groups(['read', 'write'])]
-    public ?string $addressLocality = null;
-
-    /**
      * The region in which the locality is, and which is in the country. For example, California or another appropriate first-level \[Administrative division\](https://en.wikipedia.org/wiki/List\_of\_administrative\_divisions\_by\_country).
      *
      * @see https://schema.org/addressRegion
@@ -57,6 +48,16 @@ class PostalAddress extends Thing
     #[ApiProperty(types: ['https://schema.org/postalCode'])]
     #[Groups(['read', 'write'])]
     public ?string $postalCode = null;
+
+    /**
+     * The locality in which the street address is, and which is in the region. For example, Mountain View.
+     *
+     * @see https://schema.org/addressLocality
+     */
+    #[ORM\Column(type: 'text', nullable: true)]
+    #[ApiProperty(types: ['https://schema.org/addressLocality'])]
+    #[Groups(['read', 'write'])]
+    public ?string $addressLocality = null;
 
     /**
      * The street address. For example, 1600 Amphitheatre Pkwy.
