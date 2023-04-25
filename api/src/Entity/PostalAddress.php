@@ -29,16 +29,6 @@ class PostalAddress extends Thing
     public ?string $addressCountry = null;
 
     /**
-     * The locality in which the street address is, and which is in the region. For example, Mountain View.
-     *
-     * @see https://schema.org/addressLocality
-     */
-    #[ORM\Column(type: 'text', nullable: true)]
-    #[ApiProperty(types: ['https://schema.org/addressLocality'])]
-    #[Groups(['read', 'write'])]
-    public ?string $addressLocality = null;
-
-    /**
      * The region in which the locality is, and which is in the country. For example, California or another appropriate first-level \[Administrative division\](https://en.wikipedia.org/wiki/List\_of\_administrative\_divisions\_by\_country).
      *
      * @see https://schema.org/addressRegion
@@ -59,6 +49,16 @@ class PostalAddress extends Thing
     public ?string $postalCode = null;
 
     /**
+     * The locality in which the street address is, and which is in the region. For example, Mountain View.
+     *
+     * @see https://schema.org/addressLocality
+     */
+    #[ORM\Column(type: 'text', nullable: true)]
+    #[ApiProperty(types: ['https://schema.org/addressLocality'])]
+    #[Groups(['read', 'write'])]
+    public ?string $addressLocality = null;
+
+    /**
      * The street address. For example, 1600 Amphitheatre Pkwy.
      *
      * @see https://schema.org/streetAddress
@@ -67,4 +67,12 @@ class PostalAddress extends Thing
     #[ApiProperty(types: ['https://schema.org/streetAddress'])]
     #[Groups(['read', 'write'])]
     public ?string $streetAddress = null;
+
+    public function __toString(): string
+    {
+        return ($this->streetAddress . ', ' .
+            $this->postalCode . ' ' .
+            $this->addressLocality . ', ' .
+            $this->addressCountry);
+    }
 }

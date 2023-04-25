@@ -6,6 +6,9 @@ namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiProperty;
 use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\GetCollection;
+use ApiPlatform\Metadata\Post;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -18,8 +21,14 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\Entity]
 #[ApiResource(
     types: ['https://schema.org/House'],
+    operations: [
+        new Get(),
+        new GetCollection(openapi: false),
+        new Post()
+    ],
     normalizationContext: ['groups' => ['read']],
-    denormalizationContext: ['groups' => ['write']])]
+    denormalizationContext: ['groups' => ['write']]
+)]
 class House extends Place
 {
     #[ORM\Column(type: 'text', nullable: false)]
