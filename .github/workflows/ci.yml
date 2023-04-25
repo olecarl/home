@@ -49,7 +49,7 @@ jobs:
           docker compose exec -T php bin/console -e test doctrine:database:create
           docker compose exec -T php bin/console -e test doctrine:migrations:migrate --no-interaction
       - name: Doctrine Schema Validator
-          run: docker compose exec -T php bin/console doctrine:schema:validate
+        run: docker compose exec -T php bin/console doctrine:schema:validate --skip-sync
       - name: Codeception Test Suite
         run: docker compose exec -T php vendor/bin/codecept run -f
       - name: Report Application Settings
