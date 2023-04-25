@@ -12,26 +12,26 @@
         "doctrine/doctrine-migrations-bundle": "^3.2",
         "doctrine/orm": "^2.12",
         "liip/monitor-bundle": "^2.20",
-        "nelmio/cors-bundle": "^2.2",
+        "nelmio/cors-bundle": "^2.0@dev",
         "phpdocumentor/reflection-docblock": "^5.3",
-        "symfony/asset": "6.2.*",
-        "symfony/console": "6.2.*",
-        "symfony/dotenv": "6.2.*",
-        "symfony/expression-language": "6.2.*",
+        "symfony/asset": "6.3.*",
+        "symfony/console": "6.3.*",
+        "symfony/dotenv": "6.3.*",
+        "symfony/expression-language": "6.3.*",
         "symfony/flex": "^2.2",
-        "symfony/framework-bundle": "6.2.*",
+        "symfony/framework-bundle": "6.3.*",
         "symfony/mercure-bundle": "^0.3.5",
         "symfony/monolog-bundle": "^3.8",
-        "symfony/property-access": "6.2.*",
-        "symfony/property-info": "6.2.*",
+        "symfony/property-access": "6.3.*",
+        "symfony/property-info": "6.3.*",
         "symfony/requirements-checker": "^2.0",
-        "symfony/runtime": "6.2.*",
-        "symfony/security-bundle": "6.2.*",
-        "symfony/serializer": "6.2.*",
-        "symfony/twig-bundle": "6.2.*",
-        "symfony/uid": "6.2.*",
-        "symfony/validator": "6.2.*",
-        "symfony/yaml": "6.2.*"
+        "symfony/runtime": "6.3.*",
+        "symfony/security-bundle": "6.3.*",
+        "symfony/serializer": "6.3.*",
+        "symfony/twig-bundle": "6.3.*",
+        "symfony/uid": "6.3.*",
+        "symfony/validator": "6.3.*",
+        "symfony/yaml": "6.3.*"
     },
     "require-dev": {
         "api-platform/schema-generator": "^5.0",
@@ -44,14 +44,14 @@
         "friendsofphp/php-cs-fixer": "^3.16",
         "hautelook/alice-bundle": "^2.12",
         "phpmetrics/phpmetrics": "^2.8",
-        "symfony/browser-kit": "6.2.*",
-        "symfony/css-selector": "6.2.*",
-        "symfony/debug-bundle": "6.2.*",
+        "symfony/browser-kit": "6.3.*",
+        "symfony/css-selector": "6.3.*",
+        "symfony/debug-bundle": "6.3.*",
         "symfony/maker-bundle": "^1.44",
-        "symfony/phpunit-bridge": "6.2.*",
-        "symfony/stopwatch": "6.2.*",
-        "symfony/var-dumper": "6.2.*",
-        "symfony/web-profiler-bundle": "6.2.*",
+        "symfony/phpunit-bridge": "6.3.*",
+        "symfony/stopwatch": "6.3.*",
+        "symfony/var-dumper": "6.3.*",
+        "symfony/web-profiler-bundle": "6.3.*",
         "vimeo/psalm": "^5.9"
     },
     "config": {
@@ -71,6 +71,7 @@
             "App\\": "src/"
         }
     },
+    "minimum-stability": "dev",
     "autoload-dev": {
         "psr-4": {
             "App\\Tests\\": "tests/"
@@ -107,7 +108,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "6.2.*",
+            "require": "6.3.*",
             "docker": false
         }
     }
