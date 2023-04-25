@@ -24,7 +24,7 @@ use Symfony\Component\Validator\Constraints as Assert;
     operations: [
         new Get(),
         new GetCollection(openapi: false),
-        new Post()
+        new Post(),
     ],
     normalizationContext: ['groups' => ['read']],
     denormalizationContext: ['groups' => ['write']]

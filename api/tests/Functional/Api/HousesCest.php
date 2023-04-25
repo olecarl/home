@@ -70,6 +70,25 @@ class HousesCest
         }
     }
 
+    public function tryToGetCollection(FunctionalTester $I): void
+    {
+        $I->amGoingTo('GET list of houses');
+        $I->sendGet(self::ROUTE);
+
+        $I->expect('response is successful');
+        $I->seeResponseCodeIsSuccessful();
+        $I->seeHttpHeader('content-type', 'application/ld+json; charset=utf-8');
+        $I->seeResponseIsJson();
+
+        $I->seeResponseContainsJson(
+            [
+                '@context' => '/contexts/House',
+                '@id' => self::ROUTE,
+                '@type' => 'hydra:Collection'
+            ]
+        );
+    }
+
     protected function houseProvider(): array
     {
         return [
@@ -133,25 +152,6 @@ class HousesCest
      * ]
      * );
      * }
-
-    public function tryToGetHouseCollection(FunctionalTester $I): void
-    {
-        $I->amGoingTo('GET list of houses');
-        $I->sendGet(self::ROUTE);
-
-        $I->expect('response is successful');
-        $I->seeResponseCodeIsSuccessful();
-        $I->seeHttpHeader('content-type', 'application/ld+json; charset=utf-8');
-        $I->seeResponseIsJson();
-
-        $I->seeResponseContainsJson(
-            [
-                '@context' => '/contexts/House',
-                '@id' => self::ROUTE,
-                '@type' => 'hydra:Collection'
-            ]
-        );
-    }
 
     * public function tryToDeleteHouse(FunctionalTester $I): void
     * {
