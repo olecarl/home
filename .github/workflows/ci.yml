@@ -1,10 +1,13 @@
-name: CI
+name: continous-integration
 
 on:
   push:
     branches:
-      - main
-  pull_request: ~
+      - develop
+  pull_request:
+    branches:
+      - master
+      - develop
   workflow_dispatch: ~
 
 jobs:
@@ -54,3 +57,5 @@ jobs:
         run: docker compose exec -T php vendor/bin/codecept run -f
       - name: Report Application Settings
         run: docker compose exec -T php bin/console about
+      - name: Health Monitor
+        run: docker compose exec -T php bin/console monitor:health

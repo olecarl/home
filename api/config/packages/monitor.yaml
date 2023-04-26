@@ -5,7 +5,7 @@ liip_monitor:
     checks:
         php_extensions: [ xdebug, apcu ]
 
-        symfony_version: ~
+        #symfony_version: ~
 
         readable_directory: [ "%kernel.cache_dir%" ]
 
