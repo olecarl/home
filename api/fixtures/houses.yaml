@@ -1,9 +1,11 @@
+App\Entity\PostalAddress:
+    postal_address_{1..10}:
+        addressCountry: <countryCode()>
+        postalCode: <postCode()>
+        addressLocality: <city()>
+        streetAddress: <streetAddress()>
+
 App\Entity\House:
     house_{1..10}:
         name: <word()>
-        address:
-            addressCountry:
-            addressRegion:
-            postalCode:
-            addressLocality:
-            streetAddress:
+        address: '@postal_address_<current()>'

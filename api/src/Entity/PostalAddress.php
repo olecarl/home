@@ -16,7 +16,11 @@ use Symfony\Component\Uid\Ulid;
  * @see https://schema.org/PostalAddress
  */
 #[ORM\Entity]
-#[ApiResource(types: ['https://schema.org/PostalAddress'], openapi: false)]
+#[ApiResource(
+    types: ['https://schema.org/PostalAddress'],
+    normalizationContext: ['groups' => ['read']],
+    openapi: false,
+)]
 class PostalAddress extends Thing
 {
     /**
