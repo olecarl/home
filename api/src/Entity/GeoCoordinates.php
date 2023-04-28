@@ -7,6 +7,7 @@ namespace App\Entity;
 use ApiPlatform\Metadata\ApiProperty;
 use ApiPlatform\Metadata\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
@@ -18,6 +19,9 @@ use Symfony\Component\Serializer\Annotation\Groups;
 #[ApiResource(types: ['https://schema.org/GeoCoordinates'], openapi: false)]
 class GeoCoordinates extends Thing
 {
+
+    use TimestampableEntity;
+
     /**
      * The latitude of a location. For example ```37.42242``` (\[WGS 84\](https://en.wikipedia.org/wiki/World\_Geodetic\_System)).
      *
