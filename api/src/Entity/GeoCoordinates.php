@@ -19,7 +19,6 @@ use Symfony\Component\Serializer\Annotation\Groups;
 #[ApiResource(types: ['https://schema.org/GeoCoordinates'], openapi: false)]
 class GeoCoordinates extends Thing
 {
-
     use TimestampableEntity;
 
     /**

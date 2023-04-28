@@ -32,11 +32,11 @@ use Symfony\Component\Validator\Constraints as Assert;
 )]
 class House extends Place
 {
+    use TimestampableEntity;
+
     #[ORM\Column(type: 'text', nullable: false)]
     #[ApiProperty(types: ['https://schema.org/name'])]
     #[Groups(['read', 'write'])]
     #[Assert\NotBlank]
     public ?string $name = null;
-
-    use TimestampableEntity;
 }

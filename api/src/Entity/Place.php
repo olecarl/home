@@ -41,6 +41,4 @@ abstract class Place extends Thing
         $this->address = $address;
         $this->geo = $geo;
     }
-
-
 }
