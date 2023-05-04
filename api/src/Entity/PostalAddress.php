@@ -23,6 +23,8 @@ use Symfony\Component\Serializer\Annotation\Groups;
 )]
 class PostalAddress extends Thing
 {
+    public const SEPARATOR = ', ';
+
     use TimestampableEntity;
 
     /**
@@ -74,4 +76,13 @@ class PostalAddress extends Thing
     #[ApiProperty(types: ['https://schema.org/streetAddress'])]
     #[Groups(['read', 'write'])]
     public ?string $streetAddress = null;
+
+    public function __toString(): string
+    {
+        return (
+            $this->streetAddress . self::SEPARATOR .
+            $this->postalCode . $this->addressLocality . self::SEPARATOR .
+            $this->addressCountry
+        );
+    }
 }
