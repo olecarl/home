@@ -118,8 +118,8 @@ class HousesCest
                 'code' => 201,
                 'address' => [],
                 'geo' => [
-                    'latitude' => '50.415330',
-                    'longitude' => '6.557540'
+                    'latitude' => 50.415330,
+                    'longitude' => 6.557540
                 ]
             ]
         ];
