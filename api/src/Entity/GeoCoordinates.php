@@ -26,18 +26,24 @@ class GeoCoordinates extends Thing
      *
      * @see https://schema.org/latitude
      */
-    #[ORM\Column(type: 'text', nullable: true)]
+    #[ORM\Column(type: 'float', nullable: true)]
     #[ApiProperty(types: ['https://schema.org/latitude'])]
     #[Groups(['read', 'write'])]
-    public ?string $latitude = null;
+    public ?float $latitude = null;
 
     /**
      * The longitude of a location. For example ```-122.08585``` (\[WGS 84\](https://en.wikipedia.org/wiki/World\_Geodetic\_System)).
      *
      * @see https://schema.org/longitude
      */
-    #[ORM\Column(type: 'text', nullable: true)]
+    #[ORM\Column(type: 'float', nullable: true)]
     #[ApiProperty(types: ['https://schema.org/longitude'])]
     #[Groups(['read', 'write'])]
-    public ?string $longitude = null;
+    public ?float $longitude = null;
+
+    public function __construct(?float $latitude, ?float $longitude)
+    {
+        $this->latitude = $latitude;
+        $this->longitude = $longitude;
+    }
 }

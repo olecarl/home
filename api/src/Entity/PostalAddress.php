@@ -7,6 +7,7 @@ namespace App\Entity;
 use ApiPlatform\Metadata\ApiProperty;
 use ApiPlatform\Metadata\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Timestampable\Timestampable;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Symfony\Component\Serializer\Annotation\Groups;
 
@@ -21,9 +22,10 @@ use Symfony\Component\Serializer\Annotation\Groups;
     normalizationContext: ['groups' => ['read']],
     openapi: false,
 )]
-class PostalAddress extends Thing
+class PostalAddress extends Thing implements Timestampable
 {
     use TimestampableEntity;
+    public const SEPARATOR = ', ';
 
     /**
      * The country. For example, USA. You can also provide the two-letter \[ISO 3166-1 alpha-2 country code\](http://en.wikipedia.org/wiki/ISO\_3166-1).
@@ -74,4 +76,13 @@ class PostalAddress extends Thing
     #[ApiProperty(types: ['https://schema.org/streetAddress'])]
     #[Groups(['read', 'write'])]
     public ?string $streetAddress = null;
+
+    public function __toString(): string
+    {
+        return
+            $this->streetAddress.self::SEPARATOR.
+            $this->postalCode.$this->addressLocality.self::SEPARATOR.
+            $this->addressCountry
+        ;
+    }
 }

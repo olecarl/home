@@ -409,6 +409,18 @@
             "config/packages/mercure.yaml"
         ]
     },
+    "symfony/messenger": {
+        "version": "6.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "6.0",
+            "ref": "ba1ac4e919baba5644d31b57a3284d6ba12d52ee"
+        },
+        "files": [
+            "config/packages/messenger.yaml"
+        ]
+    },
     "symfony/monolog-bridge": {
         "version": "v6.0.1"
     },
@@ -600,6 +612,18 @@
     },
     "webmozart/assert": {
         "version": "1.10.0"
+    },
+    "willdurand/geocoder-bundle": {
+        "version": "5.19",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "5.0",
+            "ref": "b272ad4fbfcd45a20e7cbfdc4ad1b0e27a62fd3b"
+        },
+        "files": [
+            "config/packages/bazinga_geocoder.yaml"
+        ]
     },
     "willdurand/negotiation": {
         "version": "3.0.0"
