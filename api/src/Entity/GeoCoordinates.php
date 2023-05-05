@@ -40,4 +40,10 @@ class GeoCoordinates extends Thing
     #[ApiProperty(types: ['https://schema.org/longitude'])]
     #[Groups(['read', 'write'])]
     public ?float $longitude = null;
+
+    public function __construct(?float $latitude, ?float $longitude)
+    {
+        $this->latitude = $latitude;
+        $this->longitude = $longitude;
+    }
 }

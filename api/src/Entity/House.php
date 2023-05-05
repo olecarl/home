@@ -21,6 +21,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @see https://schema.org/House
  */
 #[ORM\Entity]
+// #[ORM\HasLifecycleCallbacks]
 #[ApiResource(
     types: ['https://schema.org/House'],
     operations: [
@@ -40,4 +41,12 @@ class House extends Place implements Timestampable
     #[Groups(['read', 'write'])]
     #[Assert\NotBlank]
     public ?string $name = null;
+
+    /**
+    public function setGeocodeAddress(): void
+    {
+        if (!empty($this->address) && is_a($this->address, PostalAddress::class)) {
+            $this->geo = new GeoCoordinates(50.415330, 6.557540);
+        }
+    } **/
 }
