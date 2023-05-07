@@ -11,9 +11,13 @@
         "doctrine/doctrine-bundle": "^2.7",
         "doctrine/doctrine-migrations-bundle": "^3.2",
         "doctrine/orm": "^2.12",
+        "geocoder-php/google-maps-provider": "^4.7",
+        "guzzlehttp/guzzle": "7.5.x-dev",
         "liip/monitor-bundle": "^2.20",
         "nelmio/cors-bundle": "^2.0@dev",
+        "php-http/message": "1.x-dev",
         "phpdocumentor/reflection-docblock": "^5.3",
+        "stof/doctrine-extensions-bundle": "^1.0@dev",
         "symfony/asset": "6.3.*",
         "symfony/console": "6.3.*",
         "symfony/dotenv": "6.3.*",
@@ -21,6 +25,7 @@
         "symfony/flex": "^2.2",
         "symfony/framework-bundle": "6.3.*",
         "symfony/mercure-bundle": "^0.3.5",
+        "symfony/messenger": "6.3.*",
         "symfony/monolog-bundle": "^3.8",
         "symfony/property-access": "6.3.*",
         "symfony/property-info": "6.3.*",
@@ -31,7 +36,8 @@
         "symfony/twig-bundle": "6.3.*",
         "symfony/uid": "6.3.*",
         "symfony/validator": "6.3.*",
-        "symfony/yaml": "6.3.*"
+        "symfony/yaml": "6.3.*",
+        "willdurand/geocoder-bundle": "^5.0"
     },
     "require-dev": {
         "api-platform/schema-generator": "^5.0",
@@ -63,7 +69,8 @@
         "allow-plugins": {
             "composer/package-versions-deprecated": true,
             "symfony/flex": true,
-            "symfony/runtime": true
+            "symfony/runtime": true,
+            "php-http/discovery": true
         }
     },
     "autoload": {
@@ -108,7 +115,7 @@
     },
     "extra": {
         "symfony": {
-            "allow-contrib": false,
+            "allow-contrib": true,
             "require": "6.3.*",
             "docker": false
         }

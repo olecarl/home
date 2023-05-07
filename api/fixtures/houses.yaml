@@ -1,9 +1,0 @@
-App\Entity\House:
-    house_{1..10}:
-        name: <word()>
-        address:
-            addressCountry:
-            addressRegion:
-            postalCode:
-            addressLocality:
-            streetAddress:
