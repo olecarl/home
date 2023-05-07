@@ -1,0 +1,6 @@
+App\Domain\ValueObject\PlaceName:
+    place_name_{1..10}:
+        __construct: [ '<word()>' ]
+
+App\Entity\Place:
+    house_{1..10}:

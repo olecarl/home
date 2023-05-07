@@ -4,7 +4,7 @@
     "description": "Home App",
     "license": "MIT",
     "require": {
-        "php": ">=8.2",
+        "php": ">=8.1",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "api-platform/core": "^3.0",
@@ -37,6 +37,7 @@
         "symfony/uid": "6.3.*",
         "symfony/validator": "6.3.*",
         "symfony/yaml": "6.3.*",
+        "webmozart/assert": "^1.11",
         "willdurand/geocoder-bundle": "^5.0"
     },
     "require-dev": {

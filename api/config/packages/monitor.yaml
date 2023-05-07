@@ -3,7 +3,7 @@ liip_monitor:
     enable_controller: true
     
     checks:
-        php_extensions: [ xdebug, apcu ]
+        php_extensions: [ intl, apcu, xdebug ]
 
         #symfony_version: ~
 
