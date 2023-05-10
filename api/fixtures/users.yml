@@ -1,0 +1,7 @@
+App\Entity\ApiUser:
+    admin:
+        email: admin@example.com
+        roles: [ ROLE_ADMIN ]
+    user:
+        email: user@example.com
+        roles: [ ROLE_USER ]
