@@ -1,0 +1,71 @@
+{
+  "realm": "home",
+  "displayName": "Home API - Development",
+  "enabled": true,
+  "registrationAllowed": false,
+  "users": [
+    {
+      "username": "admin",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Chuck",
+      "lastName": "Norris",
+      "email": "admin@example.com",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "admin"
+        }
+      ]
+    },
+    {
+      "username": "user",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "user@example.com",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "user"
+        }
+      ]
+    }
+  ],
+  "clients": [
+    {
+      "clientId": "home-api-swagger",
+      "enabled": true,
+      "redirectUris": [
+        "*"
+      ],
+      "webOrigins": [
+        "*"
+      ],
+      "publicClient": true
+    },
+    {
+      "clientId": "home-api-pwa",
+      "enabled": true,
+      "redirectUris": [
+        "*"
+      ],
+      "webOrigins": [
+        "*"
+      ],
+      "publicClient": true
+    },
+    {
+      "clientId": "home-api-admin",
+      "enabled": true,
+      "redirectUris": [
+        "*"
+      ],
+      "webOrigins": [
+        "*"
+      ],
+      "publicClient": true
+    }
+  ]
+}
