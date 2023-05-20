@@ -1,10 +1,6 @@
 types:
-    Thing:
-        abstract: true
-        properties:
-            name: ~
     PostalAddress:
-        parent: Thing
+        parent: false
         properties:
             addressCountry: { range: "Text" }
             addressLocality: ~
@@ -12,15 +8,15 @@ types:
             postalCode: ~
             streetAddress: ~
     GeoCoordinates:
-        parent: Thing
+        parent: false
         properties:
             latitude: { range: "Text" }
             longitude: { range: "Text" }
     Place:
-        parent: Thing
+        parent: false
         abstract: true
         properties:
-            address: { range: "PostalAddress" }
+            address: { range: PostalAddress }
             geo: { range: GeoCoordinates }
     House:
         parent: Place

@@ -53,6 +53,7 @@ class ApiUser implements UserInterface
     public function getRoles(): array
     {
         $this->roles['ROLE_USER'];
+
         return $this->roles;
     }
 
