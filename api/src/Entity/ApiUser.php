@@ -20,7 +20,7 @@ class ApiUser implements UserInterface
     private ?Uuid $id = null;
 
     #[ORM\Column(type: 'string', length: 180, unique: true)]
-    private ?string $email = null;
+    public ?string $email = null;
 
     #[ORM\Column(type: 'json')]
     private array $roles = [];
@@ -28,16 +28,6 @@ class ApiUser implements UserInterface
     public function getId(): ?Uuid
     {
         return $this->id;
-    }
-
-    public function getEmail(): ?string
-    {
-        return $this->email;
-    }
-
-    public function setEmail(string $email): void
-    {
-        $this->email = $email;
     }
 
     /**
@@ -52,16 +42,8 @@ class ApiUser implements UserInterface
      */
     public function getRoles(): array
     {
-        $this->roles['ROLE_USER'];
+        $this->roles[] = ['ROLE_USER'];
         return $this->roles;
-    }
-
-    /**
-     * @param array<int, string> $roles
-     */
-    public function setRoles(array $roles): void
-    {
-        $this->roles = $roles;
     }
 
     public function getUserIdentifier(): string

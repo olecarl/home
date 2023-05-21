@@ -28,9 +28,9 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        - { path: ^/docs, roles: [ ] }
-        - { path: ^/profile, roles: ROLE_USER }
-
+        #- { path: ^/docs, roles: [ ] }
+        #- { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/profile, roles: IS_AUTHENTICATED_FULLY }
 when@prod:
     security:
         firewalls:
@@ -49,12 +49,15 @@ when@dev:
                 access_token:
                     token_handler:
                         oidc_user_info:
-                            claim: email
+                            #claim: email
                             client:
                                 base_uri: '%env(OIDC_SERVER_URL)%/protocol/openid-connect/userinfo'
-                                # Local usage only, certs provided by Keycloak are self-signed
-                                verify_peer: false
-                                verify_host: false
+                                
+                                #oidc:
+                                #signature:
+                                # Algorithm used to sign the JWS
+                                #algorithm: 'HS256'
+                                #key: '{"kty":"...","k":"..."}'
 
 when@test:
     security:
